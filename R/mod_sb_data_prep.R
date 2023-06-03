@@ -114,9 +114,9 @@ mod_sb_data_prep_server <- function(id){
         )
       }
       shinyjs::toggleClass("render", class = "animated")
-    }, priority = 2)
+    }, priority = 3)
 
-    observeEvent(c(input$agg, input$split), {
+    observeEvent(input$split, {
       if (!identical(input$split, "none")) {
         r <- UU::time_factor(c(input$split, input$agg))
         # How many to shave off
@@ -128,9 +128,11 @@ mod_sb_data_prep_server <- function(id){
           selected = choices[ifelse(choices[[1]] == "season" && input$split == "year", 2, 1)]
         )
       }
-
+    }, priority = 2)
+    observeEvent(c(input$agg, input$split), {
       shinyjs::toggleClass("render", class = "animated")
     }, priority = 1)
+
     observeEvent(input$render, {
       req(iv$is_valid())
       tl <- input$timeline
@@ -141,7 +143,7 @@ mod_sb_data_prep_server <- function(id){
       ud$log$agg(input$agg)
       ud$state$render <- input$render
       shinyjs::removeClass("render", class = "animated")
-    }, ignoreNULL = TRUE, ignoreInit = TRUE, priority = 3)
+    }, ignoreNULL = TRUE, ignoreInit = TRUE, priority = 4)
 
 
 
