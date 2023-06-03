@@ -125,7 +125,7 @@ mod_sb_data_prep_server <- function(id){
         shiny::updateSelectInput(
           inputId = "agg",
           choices = choices,
-          selected = choices[ifelse(choices[[1]] == "season" && input$split == "year", 2, 1)]
+          selected = switch(input$split, year = "quarter", season = "month", choices[1])
         )
       }
     }, priority = 2)

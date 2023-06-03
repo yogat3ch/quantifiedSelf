@@ -52,8 +52,11 @@ graph_gen <- function(.data, agg = NULL, split = NULL, plot_type = NULL) {
   # Split ----
   # Sat May 27 18:00:52 2023
   summed <- if (do_split) {
-    if (split %in% c("quarter", "month", "week")) {
-      f <- getFromNamespace(paste0("year", split), ns = "tsibble")
+    if (split %in% c("season", "quarter", "month", "week")) {
+      f <- if (identical(split, "season"))
+        function(x) paste(lubridate::year(x), UU::season_factor(x, label = TRUE))
+      else
+        getFromNamespace(paste0("year", split), ns = "tsibble")
       summed <- dplyr::mutate(summed, !!spl_sym := f(!!spl_sym))
     }
 
