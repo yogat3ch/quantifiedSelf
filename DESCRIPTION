@@ -29,6 +29,7 @@ Imports:
     stats,
     stringr,
     tibble,
+    tsibble,
     UU (>= 1.28.1)
 Encoding: UTF-8
 LazyData: true

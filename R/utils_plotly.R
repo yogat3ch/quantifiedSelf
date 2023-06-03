@@ -52,8 +52,13 @@ graph_gen <- function(.data, agg = NULL, split = NULL, plot_type = NULL) {
   # Split ----
   # Sat May 27 18:00:52 2023
   summed <- if (do_split) {
+    if (split %in% c("quarter", "month", "week")) {
+      f <- getFromNamespace(paste0("year", split), ns = "tsibble")
+      summed <- dplyr::mutate(summed, !!spl_sym := f(!!spl_sym))
+    }
+
     .x <- dplyr::group_by(summed, !!spl_sym)
-    .x <- rlang::set_names(dplyr::group_split(.x), unlist(dplyr::group_keys(.x), use.names = FALSE))
+    .x <- rlang::set_names(dplyr::group_split(.x), dplyr::group_keys(.x)[[1]])
   } else {
     summed
   }
@@ -118,6 +123,7 @@ graph_gen <- function(.data, agg = NULL, split = NULL, plot_type = NULL) {
         color = I("maroon"),
         marker = NULL
       )
+
     p <- plotly::layout(
       p,
       plot_bgcolor = "#434343",
@@ -157,6 +163,7 @@ graph_gen <- function(.data, agg = NULL, split = NULL, plot_type = NULL) {
 
     p
   })
+
 
   # Render graph(s) ----
   # Sat May 27 18:01:31 2023
