@@ -17,7 +17,7 @@ dirs$data()
 
 \item{ext}{\code{(chr)} file extension}
 
-\item{mustWork}{\code{lgl} If `TRUE`, an error is given if there are no matching files.}
+\item{mustWork}{\code{lgl} If \code{TRUE}, an error is given if there are no matching files.}
 }
 \description{
 directory path generation convenience functions

@@ -18,7 +18,21 @@ app_ui <- function(request) {
           div(
             class = "sb",
             shiny::fileInput("file",
-                             "Upload your Insight Timer Export CSV",
+                             div(
+                               "Upload your Insight Timer Export CSV",
+                               tippy::tippy(
+                                 shiny::icon("circle-question", class = "sup"),
+                                 tooltip =
+                                   div(class = "text-left",
+                                       tags$ol(
+                                         tags$li("From the home screen, click the profile icon in the top right"),
+                                         tags$li("Click the cog/gear icon in the top right"),
+                                         tags$li("Scroll to the Account section and click Sessions"),
+                                         tags$li("Click the last option: Export log")
+                                       )),
+                                 allowHTML = TRUE
+                               )
+                             ),
                              accept = "csv",
                              placeholder = "example-data.csv"),
             tags$em(class = 'text-success', id = "ex_data", 'Example data loaded, explore it with the controls below.'),
