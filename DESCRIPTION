@@ -1,0 +1,38 @@
+Package: quantifiedSelf
+Title: Insight Timer Log Visualizer
+Version: 0.0.1
+Authors@R: person(given = "Stephen", family = "Holsenbeck", role = c("aut",
+        "cre"), email = "sholsen@alumni.emory.edu")
+Description: What the package does (one paragraph).
+License: AGPL-3
+Imports: 
+    bslib (>= 0.4.2),
+    config,
+    crosstalk,
+    dplyr,
+    fs,
+    glue,
+    htmltools,
+    lubridate,
+    plotly,
+    purrr,
+    RColorBrewer,
+    readr,
+    rlang,
+    sass,
+    shiny,
+    shinyjs,
+    shinyvalidate,
+    shinyVirga,
+    snakecase,
+    stats,
+    stringr,
+    tibble,
+    UU (>= 1.28.1)
+Encoding: UTF-8
+LazyData: true
+RoxygenNote: 7.2.3
+Collate: 'app_config.R' 'utils_dir_fns.R' 'app_data.R' 'app_server.R'
+        'app_ui.R' 'mod_sb_data_prep.R' 'mod_sb_time_ranger.R'
+        'mod_sb_time_split.R' 'run_app.R' 'utils_plotly.R'
+Remotes: Martin-McCoy/crosstalk, yogat3ch/UU, Martin-McCoy/shinyVirga

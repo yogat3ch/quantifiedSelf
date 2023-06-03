@@ -1,0 +1,13 @@
+.Rproj.user
+.Rhistory
+.Rdata
+.httr-oauth
+.DS_Store
+
+dev/
+
+rsconnect/
+
+inst/app/www/css/.sass_cache_keys
+
+inst/app/www/css/custom.min.css
