@@ -11,8 +11,7 @@ app_ui <- function(request) {
     # Your application UI logic
     fluidPage(
       theme = bslib::bs_theme(version = 5, bootswatch = "darkly"),
-      shiny::navbarMenu(),
-      titlePanel(tagList(tags$a(href = "https://insighttimer.com/", target = "_blank", class = "it_icon", tags$img(class = "img-thumbnail", height = "50px", width = "50px", src = shinyVirga::path_strip_shiny(dirs$img("insight-timer", ext = "jpeg")))), "Insight Timer Summary", tags$a(href = ""))),
+      titlePanel(title = tagList(tags$a(href = "https://insighttimer.com/", target = "_blank", class = "it_icon", tags$img(class = "img-thumbnail", height = "50px", width = "50px", src = shinyVirga::path_strip_shiny(dirs$img("insight-timer", ext = "jpeg")))), "Insight Timer Summary", tags$a(href = "https://github.com/yogat3ch/quantifiedSelf", class = "float-right", target = "_blank", tags$img(src = "www/img/github-mark-white.svg", height = "50px", width = "50px")))),
       sidebarLayout(
         sidebarPanel = sidebarPanel(
           h2("Controls", class = "sb", style = "display:inline-block;"),
