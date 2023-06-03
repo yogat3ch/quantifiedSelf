@@ -13,6 +13,7 @@ Imports:
     fs,
     glue,
     htmltools,
+    lifecycle,
     lubridate,
     plotly,
     purrr,
@@ -36,3 +37,4 @@ Collate: 'app_config.R' 'utils_dir_fns.R' 'app_data.R' 'app_server.R'
         'app_ui.R' 'mod_sb_data_prep.R' 'mod_sb_time_ranger.R'
         'mod_sb_time_split.R' 'run_app.R' 'utils_plotly.R'
 Remotes: Martin-McCoy/crosstalk, yogat3ch/UU, Martin-McCoy/shinyVirga
+Roxygen: list(markdown = TRUE)
